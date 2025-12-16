@@ -1,0 +1,168 @@
+.customPostCard {
+    height: auto;
+    width: 100%;
+}
+/* --- GRID LAYOUT --- */
+.postGridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Strictly 2 columns */
+    gap: 1.5rem;
+    padding: 1rem;
+    
+    width: 100%;
+    height: auto; /* Fill the parent */
+    
+    overflow-y: auto;  /* Scroll vertical */
+    overflow-x: hidden; /* Hide horizontal */
+    box-sizing: border-box;
+}
+
+/* Custom Scrollbar */
+.postGridContainer::-webkit-scrollbar {
+    width: 6px;
+}
+.postGridContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+.postGridContainer::-webkit-scrollbar-thumb {
+    background: rgba(0, 229, 255, 0.3);
+    border-radius: 10px;
+}
+
+/* --- CARD STRUCTURE --- */
+.customPostCard {
+    width: 100%;
+    height: 100%;
+    /* No fixed height, let it stretch to fill the grid row if needed */
+}
+
+/* --- GLASSMORPHISM & TRANSPARENCY --- */
+.transparentCard {
+    /* Important: Overrides Bootstrap's white background */
+    background-color: rgba(255, 255, 255, 0.03) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(5px); /* Blurs the background behind the card */
+    border-radius: 12px !important;
+    transition: background-color 0.3s ease;
+}
+
+.transparentCard:hover {
+    background-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* --- TYPOGRAPHY --- */
+.cardBody {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* vital for pushing footer to bottom */
+}
+
+.cardTitle {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.5px;
+}
+
+.cardSubtitle {
+    color: rgba(255, 255, 255, 0.4) !important; /* Bootstrap override */
+    font-size: 0.8rem;
+    font-family: monospace;
+    margin: 1rem 0;
+
+}
+
+.cardText {
+    color: #d1d5db; /* Light grey */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    
+    /* Ensure text pushes footer to bottom */
+    flex-grow: 1; 
+}
+
+/* --- FOOTER / STATS --- */
+.cardFooter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reactionLink {
+    color: #00e5ff; /* Cyan accent */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.reactionLink:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+}
+
+.viewsText {
+    margin-left: auto; /* Pushes views to the far right */
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+}
+
+
+
+
+
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 8px;        
+    margin-bottom: 1.5rem; 
+}
+
+.tagBadge {
+    /* Remove default button styles */
+    background: rgba(0, 229, 255, 0.02); /* Very faint cyan background */
+    border: 1px solid rgba(0, 229, 255, 0.2); /* Thin, dim border */
+    color: rgba(0, 229, 255, 0.8); /* Cyan text */
+    
+    padding: 4px 12px;
+    border-radius: 15px; /* Pill shape */
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tagBadge:hover {
+    background: rgba(0, 229, 255, 0.15);
+    border-color: rgba(0, 229, 255, 0.8);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.03); /* Neon glow */
+}
+
+/* --- DELETE BUTTON TWEAK --- */
+.customDeleteButton {
+    cursor: pointer;
+    background-color: rgba(220, 53, 69, 0.8) !important; /* Glassy Red */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    transition: transform 0.2s;
+    /* Adjust position to sit nicely on the corner */
+    top: -10px !important;
+    right: -10px !important;
+    left: auto !important; /* Override bootstrap start-100 */
+    transform: none !important;
+}
+
+.customDeleteButton:hover {
+    transform: scale(1.1) !important;
+    background-color: rgba(255, 0, 0, 1) !important;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
